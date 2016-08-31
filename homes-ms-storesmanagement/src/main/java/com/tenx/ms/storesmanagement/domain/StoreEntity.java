@@ -19,7 +19,7 @@ public class StoreEntity {
     private String name;
     @Column(name = "address")
     private String address;
-    @Column(name = "phone")
+    @Column(name = "phone",columnDefinition = "char")
     private String phone;
     @Column(name = "notes")
     private String notes;

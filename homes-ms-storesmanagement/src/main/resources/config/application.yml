@@ -8,23 +8,28 @@
 # 4. Remove this comment block
 #
 
+
 management.security.enabled: false
 security.basic.enabled: false
+
 
 server:
   port: 9888
   contextPath: /storesmanagement
 
+---
+
 spring:
+  profiles: dev
   cloud:
     discovery:
       enabled: false
   jpa:
     show-sql: true
-    hibernate:
-      ddl-auto: validate
+    hibernate:
+      ddl-auto: validate
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/stores?tinyInt1isBit=false&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/stores?tinyInt1isBit=false&useSSL=false&createDatabaseIfNotExist=true
     username: root
     password: password
     driver-class-name: com.mysql.jdbc.Driver

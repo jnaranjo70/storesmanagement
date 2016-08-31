@@ -5,13 +5,23 @@ import com.tenx.ms.commons.rest.RestConstants;
 import com.tenx.ms.commons.rest.dto.ResourceCreated;
 import com.tenx.ms.storesmanagement.rest.dto.StoreDTO;
 import com.tenx.ms.storesmanagement.services.StoreService;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -22,7 +32,7 @@ public class StoreController extends AbstractController {
     @Autowired
     private StoreService storeService;
 
-    private static final Logger logger = LoggerFactory.getLogger(StoreController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(StoreController.class);
 
 
     @ApiOperation(value = "Gets the list of all Stores")
@@ -31,7 +41,7 @@ public class StoreController extends AbstractController {
         @ApiResponse(code = 500, message = "Internal server error")})
     @RequestMapping(method = RequestMethod.GET)
     public List<StoreDTO> getStores(Pageable pageable) {
-        logger.debug("Get Stores");
+        LOGGER.debug("Get Stores");
         return storeService.getStores(pageable);
     }
 
@@ -43,7 +53,7 @@ public class StoreController extends AbstractController {
     @ApiParam(name = "storeId", value = "The id to identify the Store to get")
     @RequestMapping(value = {"/{storeId:\\d+}"}, method = RequestMethod.GET)
     public StoreDTO getStoreById( @PathVariable long storeId) {
-        logger.debug(String.format("Get Store with Id: %s", storeId));
+        LOGGER.debug(String.format("Get Store with Id: %s", storeId));
         return storeService.getStoreById(storeId).get();
     }
 
@@ -54,10 +64,11 @@ public class StoreController extends AbstractController {
         @ApiResponse(code = 500, message = "Internal server error")})
     @ApiParam(name = "store", value = "The store entity", required = true)
     @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
     public ResourceCreated<Long> createStore( @Validated @RequestBody StoreDTO store) {
-        logger.debug(String.format("Creating new Store with Name: %s",store.getName()));
+        LOGGER.debug(String.format("Creating new Store with Name: %s", store.getName()));
         Long createdStoreId = storeService.createStore(store);
-        logger.debug(String.format("Store created with ID: %d",createdStoreId));
+        LOGGER.debug(String.format("Store created with ID: %d", createdStoreId));
         return new ResourceCreated<Long>(createdStoreId);
     }
 

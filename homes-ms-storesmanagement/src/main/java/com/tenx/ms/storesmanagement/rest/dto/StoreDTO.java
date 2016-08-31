@@ -2,7 +2,6 @@ package com.tenx.ms.storesmanagement.rest.dto;
 
 
 import com.tenx.ms.commons.validation.constraints.PhoneNumber;
-
 import io.swagger.annotations.ApiModelProperty;
 import org.apache.avro.reflect.Nullable;
 
