@@ -1,4 +1,4 @@
-package com.tenx.ms.storesmanagement.rest.dto;
+package com.tenx.ms.storesmanagement.products.rest.dto;
 
 
 import com.tenx.ms.commons.validation.constraints.DollarAmount;

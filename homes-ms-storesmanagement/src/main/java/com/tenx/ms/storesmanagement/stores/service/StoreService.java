@@ -1,9 +1,9 @@
-package com.tenx.ms.storesmanagement.services;
+package com.tenx.ms.storesmanagement.stores.service;
 
-import com.tenx.ms.storesmanagement.converters.StoreConverter;
-import com.tenx.ms.storesmanagement.domain.StoreEntity;
-import com.tenx.ms.storesmanagement.repositories.StoreRepository;
-import com.tenx.ms.storesmanagement.rest.dto.StoreDTO;
+import com.tenx.ms.storesmanagement.stores.converter.StoreConverter;
+import com.tenx.ms.storesmanagement.stores.domain.StoreEntity;
+import com.tenx.ms.storesmanagement.stores.repository.StoreRepository;
+import com.tenx.ms.storesmanagement.stores.rest.dto.StoreDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

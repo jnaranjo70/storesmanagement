@@ -1,7 +1,7 @@
-package com.tenx.ms.storesmanagement.repositories;
+package com.tenx.ms.storesmanagement.products.repository;
 
 
-import com.tenx.ms.storesmanagement.domain.ProductEntity;
+import com.tenx.ms.storesmanagement.products.domain.ProductEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;

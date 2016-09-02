@@ -1,10 +1,10 @@
-package com.tenx.ms.storesmanagement.rest;
+package com.tenx.ms.storesmanagement.products.rest;
 
 import com.tenx.ms.commons.rest.AbstractController;
 import com.tenx.ms.commons.rest.RestConstants;
 import com.tenx.ms.commons.rest.dto.ResourceCreated;
-import com.tenx.ms.storesmanagement.rest.dto.ProductDTO;
-import com.tenx.ms.storesmanagement.services.ProductService;
+import com.tenx.ms.storesmanagement.products.rest.dto.ProductDTO;
+import com.tenx.ms.storesmanagement.products.service.ProductService;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

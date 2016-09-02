@@ -1,8 +1,8 @@
-package com.tenx.ms.storesmanagement.converters;
+package com.tenx.ms.storesmanagement.products.converter;
 
 
-import com.tenx.ms.storesmanagement.domain.ProductEntity;
-import com.tenx.ms.storesmanagement.rest.dto.ProductDTO;
+import com.tenx.ms.storesmanagement.products.domain.ProductEntity;
+import com.tenx.ms.storesmanagement.products.rest.dto.ProductDTO;
 import org.springframework.stereotype.Component;
 
 @Component

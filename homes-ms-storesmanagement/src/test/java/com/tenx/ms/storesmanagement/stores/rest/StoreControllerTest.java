@@ -1,4 +1,4 @@
-package com.tenx.ms.storesmanagement.rest;
+package com.tenx.ms.storesmanagement.stores.rest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,7 +7,7 @@ import com.tenx.ms.commons.rest.RestConstants;
 import com.tenx.ms.commons.rest.dto.ResourceCreated;
 import com.tenx.ms.commons.tests.AbstractIntegrationTest;
 import com.tenx.ms.storesmanagement.StoresmanagementServiceApp;
-import com.tenx.ms.storesmanagement.rest.dto.StoreDTO;
+import com.tenx.ms.storesmanagement.stores.rest.dto.StoreDTO;
 import org.apache.commons.io.FileUtils;
 import org.flywaydb.test.annotation.FlywayTest;
 import org.flywaydb.test.junit.FlywayTestExecutionListener;

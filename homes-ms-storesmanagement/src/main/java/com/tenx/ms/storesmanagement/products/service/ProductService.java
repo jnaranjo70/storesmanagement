@@ -1,9 +1,9 @@
-package com.tenx.ms.storesmanagement.services;
+package com.tenx.ms.storesmanagement.products.service;
 
-import com.tenx.ms.storesmanagement.converters.ProductConverter;
-import com.tenx.ms.storesmanagement.domain.ProductEntity;
-import com.tenx.ms.storesmanagement.repositories.ProductRepository;
-import com.tenx.ms.storesmanagement.rest.dto.ProductDTO;
+import com.tenx.ms.storesmanagement.products.converter.ProductConverter;
+import com.tenx.ms.storesmanagement.products.domain.ProductEntity;
+import com.tenx.ms.storesmanagement.products.repository.ProductRepository;
+import com.tenx.ms.storesmanagement.products.rest.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class ProductService {
 
     @Transactional (isolation= Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)
     public Optional<ProductDTO> getProductByStoreIdAndById(Long storeId, Long productId) {
-        return productRepository.findByStoreIdAndProductId(storeId,productId).map(productEntity -> productConverter.convertToProductDTO(productEntity));
+        return productRepository.findByStoreIdAndProductId(storeId, productId).map(productEntity -> productConverter.convertToProductDTO(productEntity));
     }
 
     @Transactional (isolation= Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)

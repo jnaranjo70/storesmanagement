@@ -1,4 +1,4 @@
-package com.tenx.ms.storesmanagement.rest.dto;
+package com.tenx.ms.storesmanagement.stores.rest.dto;
 
 
 import com.tenx.ms.commons.validation.constraints.PhoneNumber;

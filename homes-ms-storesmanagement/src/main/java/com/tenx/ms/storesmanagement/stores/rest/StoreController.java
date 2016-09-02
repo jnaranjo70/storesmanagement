@@ -1,10 +1,10 @@
-package com.tenx.ms.storesmanagement.rest;
+package com.tenx.ms.storesmanagement.stores.rest;
 
 import com.tenx.ms.commons.rest.AbstractController;
 import com.tenx.ms.commons.rest.RestConstants;
 import com.tenx.ms.commons.rest.dto.ResourceCreated;
-import com.tenx.ms.storesmanagement.rest.dto.StoreDTO;
-import com.tenx.ms.storesmanagement.services.StoreService;
+import com.tenx.ms.storesmanagement.stores.rest.dto.StoreDTO;
+import com.tenx.ms.storesmanagement.stores.service.StoreService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
