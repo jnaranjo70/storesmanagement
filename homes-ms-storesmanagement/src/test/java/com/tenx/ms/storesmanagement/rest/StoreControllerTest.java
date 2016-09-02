@@ -125,8 +125,7 @@ public class StoreControllerTest extends AbstractIntegrationTest {
 
             String successTestStore = FileUtils.readFileToString(new File(CLASSLOADER.getResource(successTestStoreFilePath).getFile()));
 
-            ResponseEntity<String> response = getJSONResponse(template, requestURI, successTestStore, HttpMethod.
-            POST);
+            ResponseEntity<String> response = getJSONResponse(template, requestURI, successTestStore, HttpMethod.POST);
             String result = response.getBody();
 
             assertEquals("For a creation request the HTTP staus code should be " + HttpStatus.CREATED.toString(), HttpStatus.CREATED, response.getStatusCode());

@@ -50,9 +50,8 @@ public class StoreController extends AbstractController {
         @ApiResponse(code = 200, message = "Success, the store identified with storeId is in the response"),
         @ApiResponse(code = 404, message = "Store identified with storeId is not found"),
         @ApiResponse(code = 500, message = "Internal server error")})
-    @ApiParam(name = "storeId", value = "The id to identify the Store to get")
     @RequestMapping(value = {"/{storeId:\\d+}"}, method = RequestMethod.GET)
-    public StoreDTO getStoreById( @PathVariable long storeId) {
+    public StoreDTO getStoreById(@ApiParam(name = "storeId", value = "The id to identify the Store to get") @PathVariable long storeId) {
         LOGGER.debug(String.format("Get Store with Id: %s", storeId));
         return storeService.getStoreById(storeId).get();
     }
@@ -62,20 +61,13 @@ public class StoreController extends AbstractController {
         @ApiResponse(code = 200, message = "Success, a new store is created"),
         @ApiResponse(code = 412, message = "Not valid input data."),
         @ApiResponse(code = 500, message = "Internal server error")})
-    @ApiParam(name = "store", value = "The store entity", required = true)
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public ResourceCreated<Long> createStore( @Validated @RequestBody StoreDTO store) {
+    public ResourceCreated<Long> createStore(@ApiParam(name = "store", value = "The store entity", required = true) @Validated @RequestBody StoreDTO store) {
         LOGGER.debug(String.format("Creating new Store with Name: %s", store.getName()));
         Long createdStoreId = storeService.createStore(store);
         LOGGER.debug(String.format("Store created with ID: %d", createdStoreId));
         return new ResourceCreated<Long>(createdStoreId);
     }
 
-//    @ResponseStatus(value = HttpStatus.PRECONDITION_FAILED)
-//    @ExceptionHandler(UpdateViolationException.class)
-//    protected void handleUpdateViolationException(UpdateViolationException ex,
-//                                                  HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        response.sendError(HttpStatus.PRECONDITION_FAILED.value(), ex.getMessage());
-//    }
 }
