@@ -52,13 +52,13 @@ public class StoreControllerTest extends AbstractIntegrationTest {
 
     private final ClassLoader CLASSLOADER = Thread.currentThread().getContextClassLoader();
 
-    @Value("testData/success/successTestStore.json")
+    @Value("testData/success/store/successTestStore.json")
     private String successTestStoreFilePath;
 
-    @Value("testData/success/initialTestStore.json")
+    @Value("testData/success/store/initialTestStore.json")
     private String initialTestStoreFilePath;
 
-    @Value("testData/errors/errorTestStore.json")
+    @Value("testData/errors/store/errorTestStore.json")
     private String errorTestStoreFilePath;
 
     @Test
