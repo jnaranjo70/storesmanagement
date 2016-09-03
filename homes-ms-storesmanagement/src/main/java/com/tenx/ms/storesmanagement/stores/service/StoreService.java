@@ -21,22 +21,19 @@ public class StoreService {
     @Autowired
     private StoreRepository storeRepository;
 
-    @Autowired
-    private StoreConverter storeConverter;
-
     @Transactional (isolation= Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)
     public Optional<StoreDTO> getStoreById(Long storeId) {
-        return storeRepository.findOneByStoreId(storeId).map(storeEntity -> storeConverter.convertToStoreDTO(storeEntity));
+        return storeRepository.findOneByStoreId(storeId).map(storeEntity -> StoreConverter.convertToStoreDTO(storeEntity));
     }
 
     @Transactional (isolation= Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)
     public List<StoreDTO> getStores(Pageable pageable) {
-        return storeRepository.findAll(pageable).getContent().stream().map(storeEntity -> storeConverter.convertToStoreDTO(storeEntity)).collect(Collectors.toList());
+        return storeRepository.findAll(pageable).getContent().stream().map(storeEntity -> StoreConverter.convertToStoreDTO(storeEntity)).collect(Collectors.toList());
     }
 
     @Transactional (isolation= Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)
     public Long createStore(StoreDTO storeDTO) {
-        StoreEntity storeEntity = storeConverter.convertToStoreEntity(storeDTO);
+        StoreEntity storeEntity = StoreConverter.convertToStoreEntity(storeDTO);
         storeEntity = storeRepository.save(storeEntity);
         return storeEntity.getStoreId();
     }

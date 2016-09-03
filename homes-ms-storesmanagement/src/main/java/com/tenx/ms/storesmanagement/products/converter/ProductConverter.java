@@ -8,24 +8,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductConverter {
 
-    public ProductEntity convertToProductEntity(ProductDTO storeDTO) {
+    public static ProductEntity convertToProductEntity(ProductDTO productDTO) {
         ProductEntity productEntity = new ProductEntity();
-        productEntity.setStoreId(storeDTO.getStoreId());
-        productEntity.setName(storeDTO.getName());
-        productEntity.setDescription(storeDTO.getDescription());
-        productEntity.setSku(storeDTO.getSku());
-        productEntity.setPrice(storeDTO.getPrice());
+        productEntity.setStoreId(productDTO.getStoreId());
+        productEntity.setName(productDTO.getName());
+        productEntity.setDescription(productDTO.getDescription());
+        productEntity.setSku(productDTO.getSku());
+        productEntity.setPrice(productDTO.getPrice());
         return productEntity;
     }
 
-    public ProductDTO convertToProductDTO(ProductEntity storeEntity) {
+    public static ProductDTO convertToProductDTO(ProductEntity productEntity) {
         ProductDTO productDTO = new ProductDTO();
-        productDTO.setProductId(storeEntity.getProductId());
-        productDTO.setStoreId(storeEntity.getStoreId());
-        productDTO.setName(storeEntity.getName());
-        productDTO.setDescription(storeEntity.getDescription());
-        productDTO.setSku(storeEntity.getSku());
-        productDTO.setPrice(storeEntity.getPrice());
+        productDTO.setProductId(productEntity.getProductId());
+        productDTO.setStoreId(productEntity.getStoreId());
+        productDTO.setName(productEntity.getName());
+        productDTO.setDescription(productEntity.getDescription());
+        productDTO.setSku(productEntity.getSku());
+        productDTO.setPrice(productEntity.getPrice());
         return productDTO;
     }
 }

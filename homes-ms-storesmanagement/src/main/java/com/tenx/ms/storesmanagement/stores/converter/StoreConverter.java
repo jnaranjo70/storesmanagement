@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class StoreConverter {
 
-    public StoreEntity convertToStoreEntity(StoreDTO storeDTO) {
+    public static StoreEntity convertToStoreEntity(StoreDTO storeDTO) {
         StoreEntity storeEntity = new StoreEntity();
         storeEntity.setName(storeDTO.getName());
         storeEntity.setAddress(storeDTO.getAddress());
@@ -17,7 +17,7 @@ public class StoreConverter {
         return storeEntity;
     }
 
-    public StoreDTO convertToStoreDTO(StoreEntity storeEntity) {
+    public static StoreDTO convertToStoreDTO(StoreEntity storeEntity) {
         StoreDTO storeDTO = new StoreDTO();
         storeDTO.setStoreId(storeEntity.getStoreId());
         storeDTO.setName(storeEntity.getName());
