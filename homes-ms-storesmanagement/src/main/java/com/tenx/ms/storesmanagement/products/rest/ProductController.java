@@ -1,8 +1,8 @@
 package com.tenx.ms.storesmanagement.products.rest;
 
-import com.tenx.ms.commons.rest.AbstractController;
 import com.tenx.ms.commons.rest.RestConstants;
 import com.tenx.ms.commons.rest.dto.ResourceCreated;
+import com.tenx.ms.storesmanagement.commons.rest.AbstractStoresManagementController;
 import com.tenx.ms.storesmanagement.products.rest.dto.ProductDTO;
 import com.tenx.ms.storesmanagement.products.service.ProductService;
 import io.swagger.annotations.*;
@@ -19,7 +19,7 @@ import java.util.List;
 @Api(value = "product", description = "Creates and updates Products.")
 @RestController
 @RequestMapping(RestConstants.VERSION_ONE + "/products")
-public class ProductController extends AbstractController {
+public class ProductController extends AbstractStoresManagementController {
     @Autowired
     private ProductService productService;
 

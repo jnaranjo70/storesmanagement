@@ -1,34 +1,26 @@
 package com.tenx.ms.storesmanagement.stores.rest;
 
-import com.tenx.ms.commons.rest.AbstractController;
 import com.tenx.ms.commons.rest.RestConstants;
 import com.tenx.ms.commons.rest.dto.ResourceCreated;
+import com.tenx.ms.storesmanagement.commons.rest.AbstractStoresManagementController;
 import com.tenx.ms.storesmanagement.stores.rest.dto.StoreDTO;
 import com.tenx.ms.storesmanagement.stores.service.StoreService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Api(value = "store", description = "Creates and updates Stores. An Store holds an stock of products (see stock and product endpoints)")
 @RestController
 @RequestMapping(RestConstants.VERSION_ONE + "/stores")
-public class StoreController extends AbstractController {
+public class StoreController extends AbstractStoresManagementController {
     @Autowired
     private StoreService storeService;
 
