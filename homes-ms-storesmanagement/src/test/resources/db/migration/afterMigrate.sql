@@ -21,6 +21,11 @@ INSERT INTO products (store_id,name,description,sku,price) VALUES (2,'Test Produ
 
 
 
-
-
+-- BEGIN creating STOCK initial data
+INSERT INTO stock (store_id,product_id,count) VALUES (1,1, 12);
+INSERT INTO stock (store_id,product_id,count) VALUES (1,2, 15);
+INSERT INTO stock (store_id,product_id,count) VALUES (2,3, 20);
+INSERT INTO stock (store_id,product_id,count) VALUES (2,4, 35);
+INSERT INTO stock (store_id,product_id,count) VALUES (2,5, 18);
+-- END creating Stock initial data
 
