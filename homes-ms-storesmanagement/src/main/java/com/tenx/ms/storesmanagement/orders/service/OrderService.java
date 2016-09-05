@@ -6,7 +6,6 @@ import com.tenx.ms.storesmanagement.orders.domain.OrderEntity;
 import com.tenx.ms.storesmanagement.orders.repository.OrderRepository;
 import com.tenx.ms.storesmanagement.orders.rest.dto.OrderDTO;
 import com.tenx.ms.storesmanagement.orders.rest.dto.OrderResponseDTO;
-import org.hibernate.id.GUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -31,7 +30,7 @@ public class OrderService {
         orderEntity.setOrderDate(Timestamp.valueOf(LocalDateTime.now()));
         orderEntity.setStatus(OrderStatus.CREATED);
         orderEntity = orderRepository.save(orderEntity);
-        return new OrderResponseDTO(orderEntity.getOrderId(),orderEntity.getStatus());
+        return new OrderResponseDTO(orderEntity.getExternalOrderId(),orderEntity.getStatus());
     }
 }
 

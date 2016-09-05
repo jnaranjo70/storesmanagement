@@ -8,10 +8,12 @@ import java.util.List;
 @Table(name = "orders")
 public class OrderEntity {
 
-    @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "order_id")
     private String orderId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "external_order_id")
+    private Long externalOrderId;
     @Column(name = "store_id")
     private Long storeId;
     @Column(name = "order_date")
@@ -35,6 +37,14 @@ public class OrderEntity {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;
+    }
+
+    public Long getExternalOrderId() {
+        return externalOrderId;
+    }
+
+    public void setExternalOrderId(Long externalOrderId) {
+        this.externalOrderId = externalOrderId;
     }
 
     public Long getStoreId() {

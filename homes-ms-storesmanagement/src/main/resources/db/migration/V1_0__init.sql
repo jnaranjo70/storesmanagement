@@ -29,6 +29,7 @@ CREATE TABLE stock (
 
 CREATE TABLE orders (
   order_id VARCHAR(45) NOT NULL,
+  external_order_id bigint NOT NULL AUTO_INCREMENT,
   store_id bigint NOT NULL,
   order_date timestamp NOT NULL,
   status int(11) NOT NULL,
@@ -36,7 +37,8 @@ CREATE TABLE orders (
   last_name varchar(200) NOT NULL,
   email varchar(200) NOT NULL,
   phone char(20) NOT NULL,
-  PRIMARY KEY (order_id)
+  PRIMARY KEY (order_id),
+  UNIQUE (external_order_id)
 )  ;
 
 CREATE TABLE order_products (
