@@ -28,7 +28,7 @@ CREATE TABLE stock (
 ) ;
 
 CREATE TABLE orders (
-  order_id bigint NOT NULL AUTO_INCREMENT,
+  order_id VARCHAR(45) NOT NULL,
   store_id bigint NOT NULL,
   order_date timestamp NOT NULL,
   status int(11) NOT NULL,
@@ -41,8 +41,9 @@ CREATE TABLE orders (
 
 CREATE TABLE order_products (
   product_id bigint NOT NULL,
-  order_id bigint NOT NULL,
+  order_id varchar(45) NOT NULL,
   count int(11) NOT NULL,
+  PRIMARY KEY (product_id,order_id),
   FOREIGN KEY (order_id) REFERENCES orders (order_id),
   FOREIGN KEY (product_id) REFERENCES products (product_id)
 )  ;

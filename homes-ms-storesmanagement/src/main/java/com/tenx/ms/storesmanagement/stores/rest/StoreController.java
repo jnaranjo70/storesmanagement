@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api(value = "store", description = "Creates and updates Stores. An Store holds an stock of products (see stock and product endpoints)")
+@Api(value = "stores", description = "Creates and updates Stores. An Store holds an stock of products (see stock and product endpoints)")
 @RestController
 @RequestMapping(RestConstants.VERSION_ONE + "/stores")
 public class StoreController extends AbstractStoresManagementController {

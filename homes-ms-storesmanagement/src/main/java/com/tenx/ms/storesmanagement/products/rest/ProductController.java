@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api(value = "product", description = "Creates and updates Products.")
+@Api(value = "products", description = "Creates and updates Products.")
 @RestController
 @RequestMapping(RestConstants.VERSION_ONE + "/products")
 public class ProductController extends AbstractStoresManagementController {

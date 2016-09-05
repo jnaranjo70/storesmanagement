@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@Api(value = "store", description = "Creates and updates Stores. An Store holds an stock of products (see stock and product endpoints)")
+@Api(value = "stock", description = "Creates and updates stocks levels.")
 @RestController
 @RequestMapping(RestConstants.VERSION_ONE + "/stock")
 public class StockController extends AbstractStoresManagementController {
