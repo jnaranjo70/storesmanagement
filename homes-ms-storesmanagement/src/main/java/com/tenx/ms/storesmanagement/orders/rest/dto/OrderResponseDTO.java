@@ -12,6 +12,9 @@ public class OrderResponseDTO {
     @ApiModelProperty(value = "Status of the Order")
     private int status;
 
+    public OrderResponseDTO() {
+
+    }
 
     public OrderResponseDTO(Long orderId, int status) {
         this.orderId = orderId;

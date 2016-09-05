@@ -38,7 +38,8 @@ CREATE TABLE orders (
   email varchar(200) NOT NULL,
   phone char(20) NOT NULL,
   PRIMARY KEY (order_id),
-  UNIQUE (external_order_id)
+  UNIQUE (external_order_id),
+  FOREIGN KEY (store_id) REFERENCES stores (store_id)
 )  ;
 
 CREATE TABLE order_products (
