@@ -1,6 +1,10 @@
 package com.tenx.ms.storesmanagement.orders.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "order_products")

@@ -32,8 +32,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.Matchers.greaterThan;
-import static org.junit.Assert.*;
 import static org.springframework.test.util.AssertionErrors.assertEquals;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

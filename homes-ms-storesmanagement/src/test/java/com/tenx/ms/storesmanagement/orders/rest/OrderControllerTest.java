@@ -27,8 +27,12 @@ import org.springframework.web.client.RestTemplate;
 import java.io.File;
 import java.io.IOException;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
+
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.junit.Assert.*;
+
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 
@@ -40,9 +44,6 @@ public class OrderControllerTest extends AbstractIntegrationTest {
 
 
     private final RestTemplate template = new TestRestTemplate();
-
-    private static final Long NOT_VALID_ID = 11111L;
-    private static final Long VALID_ID = 1L;
 
     private static final Long NOT_VALID_STORE_ID = 11111L;
     private static final Long VALID_STORE_ID = 1L;

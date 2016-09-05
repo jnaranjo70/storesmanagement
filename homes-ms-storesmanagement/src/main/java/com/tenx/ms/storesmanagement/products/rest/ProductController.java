@@ -5,14 +5,23 @@ import com.tenx.ms.commons.rest.dto.ResourceCreated;
 import com.tenx.ms.storesmanagement.commons.rest.AbstractStoresManagementController;
 import com.tenx.ms.storesmanagement.products.rest.dto.ProductDTO;
 import com.tenx.ms.storesmanagement.products.service.ProductService;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -32,7 +41,7 @@ public class ProductController extends AbstractStoresManagementController {
         @ApiResponse(code = 500, message = "Internal server error")})
     @RequestMapping(value = {"/{storeId:\\d+}"} , method = RequestMethod.GET)
     public List<ProductDTO> getProducts(@ApiParam(name = "storeId", value = "The id to identify the store from were to get the product list") @PathVariable long storeId, Pageable pageable) {
-        LOGGER.debug("Get Products fopr store: " + storeId);
+        LOGGER.debug(String.format("Get Products for store: %d", storeId));
         return productService.getProductsByStoreId(storeId, pageable);
     }
 

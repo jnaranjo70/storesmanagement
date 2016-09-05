@@ -6,7 +6,7 @@ import com.tenx.ms.storesmanagement.stock.rest.dto.StockDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StockConverter {
+public abstract class StockConverter {
 
     public static StockEntity convertToStockEntity(StockDTO stockDTO) {
         StockEntity stockEntity = new StockEntity();

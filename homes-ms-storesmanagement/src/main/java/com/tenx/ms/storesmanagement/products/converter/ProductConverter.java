@@ -6,7 +6,7 @@ import com.tenx.ms.storesmanagement.products.rest.dto.ProductDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProductConverter {
+public abstract class ProductConverter {
 
     public static ProductEntity convertToProductEntity(ProductDTO productDTO) {
         ProductEntity productEntity = new ProductEntity();

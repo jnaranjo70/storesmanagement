@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.stream.Collectors;
 
 @Component
-public class OrderConverter {
+public abstract class OrderConverter {
 
     public static OrderEntity convertToOrderEntity(OrderDTO orderDTO) {
         OrderEntity orderEntity = new OrderEntity();

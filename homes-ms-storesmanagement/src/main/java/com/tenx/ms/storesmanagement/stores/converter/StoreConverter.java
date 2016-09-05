@@ -6,7 +6,7 @@ import com.tenx.ms.storesmanagement.stores.rest.dto.StoreDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StoreConverter {
+public abstract class StoreConverter {
 
     public static StoreEntity convertToStoreEntity(StoreDTO storeDTO) {
         StoreEntity storeEntity = new StoreEntity();

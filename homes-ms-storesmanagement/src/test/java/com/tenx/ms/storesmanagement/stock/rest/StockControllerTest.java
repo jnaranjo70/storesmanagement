@@ -116,13 +116,11 @@ public class StockControllerTest extends AbstractIntegrationTest {
     @FlywayTest
     public void testCreateStock() {
         try {
-            String requestURI = basePath() + RestConstants.VERSION_ONE + "/stock/"+VALID_STORE_ID.toString()+"/"+VALID_PRODUCT_ID.toString();;
+            String requestURI = basePath() + RestConstants.VERSION_ONE + "/stock/"+VALID_STORE_ID.toString()+"/"+VALID_PRODUCT_ID.toString();
 
             String successTestStock = FileUtils.readFileToString(new File(CLASSLOADER.getResource(successTestStockFilePath).getFile()));
 
             ResponseEntity<String> response = getJSONResponse(template, requestURI, successTestStock, HttpMethod.POST);
-            String result = response.getBody();
-
             assertEquals("For a creation request the HTTP staus code should be " + HttpStatus.CREATED.toString(), HttpStatus.CREATED, response.getStatusCode());
 
         } catch (IOException e) {
