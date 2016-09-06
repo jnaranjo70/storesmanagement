@@ -1,4 +1,4 @@
-package com.tenx.ms.storesmanagement.stock.domain;
+package com.tenx.ms.storesmanagement.order.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,27 +7,27 @@ import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "stock")
-@IdClass(StockCompositeId.class)
-public class StockEntity {
+@Table(name = "order_products")
+@IdClass(OrderProductsCompositeId.class)
+public class OrderProductsEntity {
 
     @Id
-    @Column(name = "store_id")
-    private Long storeId;
+    @Column(name = "order_id")
+    private String orderId;
 
     @Id
     @Column(name = "product_id")
     private Long productId;
 
-    @Column(name = "count")
+    @Column(name = "count", columnDefinition = "int")
     private Long count;
 
-    public Long getStoreId() {
-        return storeId;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setStoreId(Long storeId) {
-        this.storeId = storeId;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public Long getProductId() {

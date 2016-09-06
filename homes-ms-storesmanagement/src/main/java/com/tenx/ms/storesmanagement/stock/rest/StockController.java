@@ -26,12 +26,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(RestConstants.VERSION_ONE + "/stock")
 public class StockController extends AbstractStoresManagementController {
 
-    @Autowired
-    private StockService stockService;
-
     private static final Logger LOGGER = LoggerFactory.getLogger(StockController.class);
 
-
+    @Autowired
+    private StockService stockService;
 
     @ApiOperation(value = "Gets the Stock level fot a product identified with productId i a given Store identified with storeId")
     @ApiResponses(value = {
@@ -40,7 +38,7 @@ public class StockController extends AbstractStoresManagementController {
         @ApiResponse(code = 500, message = "Internal server error")})
     @RequestMapping(value = {"/{storeId:\\d+}/{productId:\\d+}"}, method = RequestMethod.GET)
     public StockDTO getStockByStoreIdAndByProductId(@ApiParam(name = "storeId", value = "The id to identify the Store to get") @PathVariable long storeId, @ApiParam(name = "productId", value = "The id to identify the product to get") @PathVariable long productId) {
-        LOGGER.debug(String.format("Get Stock level for product with Id: %s within Store with id %s", productId,storeId));
+        LOGGER.debug("Get Stock level for product with Id: {} within Store with id {}", productId,storeId);
         return stockService.getStockByStoreIdAndByProductId(storeId,productId).get();
     }
 
@@ -54,7 +52,7 @@ public class StockController extends AbstractStoresManagementController {
     public void createStock(@ApiParam(name = "stock", value = "The stock level to be created", required = true) @Validated @RequestBody StockDTO stock,
                                              @ApiParam(name = "storeId", value = "The Store ID ", required = true) @PathVariable Long storeId,
                                              @ApiParam(name = "productId", value = "TheProduct ID", required = true) @PathVariable Long productId) {
-        LOGGER.debug(String.format("Creating new Stock level for product with ID: %s within Store withe ID: %s", productId,storeId));
+        LOGGER.debug("Creating new Stock level for product with ID: {} within Store withe ID: {}", productId,storeId);
         stock.setStoreId(storeId);
         stock.setProductId(productId);
         stockService.createStock(stock);

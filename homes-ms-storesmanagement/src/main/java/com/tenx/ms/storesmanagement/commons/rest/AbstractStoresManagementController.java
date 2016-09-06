@@ -19,14 +19,14 @@ public abstract class AbstractStoresManagementController extends AbstractControl
 
     @ResponseStatus(value = HttpStatus.PRECONDITION_FAILED)
     @ExceptionHandler(DataIntegrityViolationException.class)
-    protected void handleUpdateViolationException(DataIntegrityViolationException ex,
+    protected void handleDataIntegrityViolationException(DataIntegrityViolationException ex,
                                                   HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendError(HttpStatus.PRECONDITION_FAILED.value(), ex.getMessage());
     }
 
     @ResponseStatus(value = HttpStatus.PRECONDITION_FAILED)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    protected void handleUpdateViolationException(MethodArgumentNotValidException ex,
+    protected void handleMethodArgumentNotValidException(MethodArgumentNotValidException ex,
                                                   HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendError(HttpStatus.PRECONDITION_FAILED.value(), ex.getMessage());
     }
