@@ -1,0 +1,10 @@
+management.security.enabled: false
+security.basic.enabled: false
+
+---
+
+spring:
+  profiles: test-noauth
+  cloud:
+    discovery:
+      enabled: false

@@ -1,0 +1,16 @@
+{
+    "first_name": "Jhon",
+    "last_name": "Doe",
+    "email":"jdoe@mail.com",
+    "phone": "2222222222",
+    "products":[
+        {
+         "product_id":3,
+         "count":33
+        },
+        {
+         "product_id":5,
+         "count":55
+        }
+    ]
+}
